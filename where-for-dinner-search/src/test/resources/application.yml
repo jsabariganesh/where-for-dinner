@@ -1,0 +1,18 @@
+where-for-dinner:
+  searchEvent:
+    period: 120000
+    
+spring: 
+  sql.init.platform: h2
+  sql.init.mode: ALWAYS 
+  
+  cloud: 
+    stream:
+      defaultBinder: rabbit
+      poller:
+        fixed-delay: ${where-for-dinner.searchEvent.period} 
+      function:
+        definition: submittedSearches
+      bindings: 
+        submittedSearches-out-0: 
+          destination: where-for-dinner-search-criteria
