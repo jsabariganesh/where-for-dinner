@@ -125,10 +125,10 @@ spring:
   data:
     redis:
       # Workaround for https://github.com/spring-cloud/spring-cloud-bindings/issues/87:
-      host: ${spring.redis.host}
-      password: ${spring.redis.password}
-      port: ${spring.redis.port}
-      ssl: ${spring.redis.ssl}
+      host: ${spring.data.redis.host}
+      password: ${spring.data.redis.password}
+      port: ${spring.data.redis.port}
+      ssl: ${spring.data.redis.ssl}
   
 management:
   health:
